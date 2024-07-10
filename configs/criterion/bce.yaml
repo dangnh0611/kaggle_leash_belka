@@ -1,0 +1,4 @@
+_target_: src.modules.losses.BCEWithLogitsLoss
+weight: null
+reduction: batch_mean # same as TF's sum_over_batch_size
+pos_weight: null

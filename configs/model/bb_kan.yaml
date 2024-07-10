@@ -1,0 +1,16 @@
+_target_: src.modules.models.bb_kan.BBKANModel
+
+in_dim: 2048
+hidden_dims: [512, 512]
+kan_type: cheby
+norm: LN
+dropout: 0.0
+first_linear: False
+last_linear: False
+grid: 5
+k: 4  # default = 3 for EfficientKAN, 4 for Cheby
+
+
+
+
+

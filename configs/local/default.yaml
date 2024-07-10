@@ -1,0 +1,4 @@
+# @package _global_
+
+env:
+  data_dir: /home/dangnh36/datasets/competitions/leash_belka/  # path to data directory

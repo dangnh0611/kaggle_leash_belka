@@ -1,0 +1,39 @@
+_target_: src.modules.models.cnn1d.Model1d
+
+vocab_size: 37
+embed_dim: 128
+
+stem:
+  name: res
+  out_dim: 64
+  ksize: 3
+  stride: 1
+  act: ${model.backbone.act}
+  norm: ${model.backbone.norm}
+  depth: 1 # for squeeze only
+  preact: False
+
+backbone:
+  name: cnn1d
+  block: MBBlock
+  downsample: strided_conv # ['strided_conv', 'max_pool', 'avg_pool']
+  norm: LN
+  act: RELU
+  depth: 1
+  blocks_per_stage: 2 # stage computation ratio, can be a list
+  attns: null # can be a list, e.g [null, null, SE, SE, ECA]
+  attn_start_idx: 0 # start of stage index to put channel attention (SE, ECA,..) in, only used if attns is a single string
+  ksize: 3
+  expand_ratio: 2.0
+  width_multiplier: 1.0
+  drop_rate: 0.1
+  drop_path_rate: 0.0
+  dim_scale_method: add_0 # # add_32, add_16, mul_1.0, mul_1.2, mul_1.5
+  shortcut_downsample: "none" # max, max2, avg, avg2
+  first_stride: 1
+
+head:
+  name: linear_1d
+  num_classes: 3
+  pool_type: masked_max
+  drop_rate: 0.1

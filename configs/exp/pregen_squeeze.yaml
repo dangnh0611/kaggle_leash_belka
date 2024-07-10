@@ -1,0 +1,76 @@
+# @package _global_
+
+defaults:
+  - override /task: leash
+  - override /data: pregen
+  - override /criterion: bce
+  - override /model: squeezeformer
+  - _self_
+
+callbacks:
+  early_stopping:
+    patience: 10 # number of checks with no improvement after which training will be stopped
+
+trainer:
+  max_epochs: 12
+  val_check_interval: 0.2
+  gradient_clip_val: null
+  precision: 16-mixed
+  deterministic: True
+  benchmark: False
+  log_every_n_steps: 50
+
+loader:
+  train_batch_size: 2048
+  num_workers: 8
+  # sampler:
+  #   _target_: src.utils.sampler.BalanceSampler
+  #   batch_size: ${loader.train_batch_size}
+  #   max_epochs: ${trainer.max_epochs}
+  #   num_linear_epochs: 0
+  #   num_constant_epochs: 0
+  #   start_ratio: 0.125
+  #   end_ratio: ${loader.sampler.start_ratio}
+  #   constant_ratio: ${loader.sampler.end_ratio}
+  #   one_pos_mode: True
+  #   random_seed: ${seed}
+
+cv:
+  strategy: "16_19_0_2"
+  num_folds: 1
+  fold_idx: 0
+
+optim:
+  name: torch@adam
+  lr: 5e-4
+  weight_decay: 0.0
+  betas: [0.9, 0.999]
+  eps: 1e-7
+  # momentum: 0.9
+
+scheduler:
+  name: timm@cosine
+  warmup_epochs: 0
+  cooldown_epochs: 0
+  min_lr_factor: 1e-2
+  warmup_lr_factor: 1e-3
+  cycle_limit: 1
+  cycle_decay: 0.5
+
+ema:
+  enable: False
+  train_decays: [0.99]
+  val_decays: [0.99, 0.0]
+  test_decays: ${ema.train_decays}
+  force_cpu: False
+  reset_from: global_best # null or none, primary, last_best, global_best
+  reset_sched_epochs: [-1] # list of epochs to perform reset
+  reset_on_plateau: -1
+
+seed: 42
+
+logger:
+  wandb:
+    project: leash
+
+exp_name: tokenize_baseline

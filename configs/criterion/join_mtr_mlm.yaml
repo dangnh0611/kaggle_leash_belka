@@ -1,0 +1,5 @@
+_target_: src.modules.losses.JoinMTRMLMLoss
+mtr_weight: 0.97
+ignore_index: -1
+reduction: mean
+label_smoothing: 0.0

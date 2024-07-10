@@ -1,0 +1,11 @@
+_target_: src.tasks.leash_pretrain_mtr_mlm.LeashPretrainJoinMTRMLMTask
+
+# metrics related config
+metrics:
+  train/loss: min
+  val/loss: min
+
+metric_keep_top_k: 5
+metric: train/loss
+metric_mode: ${task.metrics.${task.metric}} # min | max
+

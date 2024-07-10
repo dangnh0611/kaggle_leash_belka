@@ -1,0 +1,7 @@
+_target_: src.modules.models.bb_mlp.BBMlpModel
+
+in_dim: 512
+mlp_chans: [1024, 1024]
+norm: null
+act: gelu
+dropout: 0.3

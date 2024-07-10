@@ -1,0 +1,9 @@
+# https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.loggers.csv_logs.html
+
+csv:
+  _target_: lightning.pytorch.loggers.csv_logs.CSVLogger
+  save_dir: ${env.output_dir}/fold_${cv.fold_idx}/
+  name: 'csv_logs'
+  version: ''
+  prefix: ''
+  flush_logs_every_n_steps: 100

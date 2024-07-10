@@ -1,0 +1,8 @@
+defaults:
+  - default
+  - _self_
+
+accelerator: cpu
+devices: auto
+num_nodes: 1
+use_distributed_sampler: False

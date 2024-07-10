@@ -1,0 +1,10 @@
+_target_: src.modules.models.transformer.TransformerModel
+
+vocab_size: 224  # 37
+model_path: /root/.cache/huggingface/hub/models--DeepChem--ChemBERTa-77M-MTR/snapshots/66b895cab8adebea0cb59a8effa66b2020f204ca/
+pool_type: masked_max
+head: mlp
+mlp_chans: [1024, 1024]
+dropout: 0.1
+
+

@@ -1,0 +1,11 @@
+data_dir: null  # path to data directory
+output_dir: ${hydra:runtime.output_dir} # path to output directory, created dynamically by hydra
+fold_output_dir: ${env.output_dir}/fold_${cv.fold_idx}/
+output_metadata_dir: ${env.output_dir}/fold_${cv.fold_idx}/metadata/
+output_viz_dir: ${env.output_dir}/fold_${cv.fold_idx}/viz/
+cwd_dir: ${hydra:runtime.cwd} # path to working directory
+
+log_model: True  # print model in Torch style
+ignore_warnings: False  # disable python warnings if they annoy you
+enforce_tags: True  # ask user for tags if none are provided in the config
+print_config: True  # pretty print config tree at the start of the run using Rich library

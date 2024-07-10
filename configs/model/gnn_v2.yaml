@@ -1,0 +1,20 @@
+_target_: src.modules.models.gnn_v2.GNNV2Model
+
+gnn_type: gin
+num_layers: 4
+node_in_dim: 2
+node_embed_dim: 128
+edge_in_dim: 2
+edge_embed_dim: 32
+emb_dim: 128
+jk: last
+act: gelu
+dropout: 0.0
+pool_type: attention
+
+head:
+  num_output: 3
+  mlp_chans: [512,512]
+  norm: null
+  act: gelu
+  dropout: 0.3

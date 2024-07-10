@@ -1,0 +1,9 @@
+_target_: src.modules.models.ifm_mlp.IFMMLPModel
+
+in_dim: 2048
+mlp_chans: [512, 512]
+norm: null
+act: relu
+dropout: 0.3
+first_omega_0: 0.5
+hidden_omega_0: 0.5

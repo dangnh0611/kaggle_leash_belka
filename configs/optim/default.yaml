@@ -1,0 +1,12 @@
+# timm optimizers
+# https://github.com/huggingface/pytorch-image-models/blob/main/timm/optim/optim_factory.py#L159
+
+name: timm@adamw
+lr: 1e-4
+weight_decay: 0.0
+# momentum: 0.9
+# opt_eps:
+# opt_betas:
+# layer_decay:
+# opt_foreach:
+# optim_kwargs: {}

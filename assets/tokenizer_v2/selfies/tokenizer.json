@@ -1,0 +1,129 @@
+{
+  "version": "1.0",
+  "truncation": null,
+  "padding": null,
+  "added_tokens": [
+    {
+      "id": 0,
+      "content": "[PAD]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 1,
+      "content": "[UNK]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 2,
+      "content": "[CLS]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 3,
+      "content": "[MASK]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 4,
+      "content": "[SEP]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 5,
+      "content": "[BOS]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 6,
+      "content": "[EOS]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    }
+  ],
+  "normalizer": null,
+  "pre_tokenizer": {
+    "type": "WhitespaceSplit"
+  },
+  "post_processor": null,
+  "decoder": null,
+  "model": {
+    "type": "WordLevel",
+    "vocab": {
+      "[PAD]": 0,
+      "[UNK]": 1,
+      "[CLS]": 2,
+      "[MASK]": 3,
+      "[SEP]": 4,
+      "[BOS]": 5,
+      "[EOS]": 6,
+      "[C]": 7,
+      "[=C]": 8,
+      "[Ring1]": 9,
+      "[N]": 10,
+      "[Branch1]": 11,
+      "[=N]": 12,
+      "[Ring2]": 13,
+      "[=Branch1]": 14,
+      "[Branch2]": 15,
+      "[O]": 16,
+      "[=O]": 17,
+      "[#Branch1]": 18,
+      "[Dy]": 19,
+      "[F]": 20,
+      "[S]": 21,
+      "[=Branch2]": 22,
+      "[#Branch2]": 23,
+      "[Cl]": 24,
+      "[#C]": 25,
+      "[P]": 26,
+      "[C@@H1]": 27,
+      "[C@H1]": 28,
+      "[NH1]": 29,
+      "[Br]": 30,
+      "[=Ring1]": 31,
+      "[N+1]": 32,
+      "[O-1]": 33,
+      "[#N]": 34,
+      "[I]": 35,
+      "[=Ring2]": 36,
+      "[/C]": 37,
+      "[C@@]": 38,
+      "[=N+1]": 39,
+      "[=N-1]": 40,
+      "[C@]": 41,
+      "[/Br]": 42,
+      "[B]": 43,
+      "[Si]": 44,
+      "[=S]": 45,
+      "[N-1]": 46
+    },
+    "unk_token": "[UNK]"
+  }
+}

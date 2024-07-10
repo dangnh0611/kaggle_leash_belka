@@ -1,0 +1,9 @@
+_target_: src.data.datasets.base.BaseDataModule
+_dataset_target_: src.data.datasets.fingerprint.FingerprintDataset
+
+feature_name: ecfp6
+format: seq
+backend: mmap
+
+
+

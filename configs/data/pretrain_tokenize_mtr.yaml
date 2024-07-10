@@ -1,0 +1,18 @@
+_target_: src.data.datasets.base.BaseDataModule
+_dataset_target_: src.data.datasets.pretrain_tokenize_mtr.PretrainTokenizeMTRDataset
+
+ram_cache: False
+
+tokenizer:
+  name: smiles_char
+  padding: longest
+  max_length: 2048
+  is_split_into_words: False
+  pad_to_multiple_of: null
+
+isomeric: True
+replace_dy: False
+do_random: 0.5
+
+
+

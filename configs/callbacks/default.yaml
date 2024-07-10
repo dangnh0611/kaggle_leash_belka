@@ -1,0 +1,11 @@
+defaults:
+  - model_checkpoint
+  - early_stopping
+  - lr_monitor
+  - model_summary
+  # - device_stats_monitor
+  # - rich_progress_bar
+  # - batch_size_finder
+  # - lr_finder
+  - tqdm_progress_bar
+  - _self_

@@ -1,0 +1,16 @@
+_target_: src.modules.models.gnn.GNNModel
+
+pretrain_ckpt: ../assets/Mole-BERT.pth
+gnn_type: gin
+num_layer: 5
+emb_dim: 300
+JK: last
+dropout: 0.0
+pool_type: attention
+
+head:
+  num_output: 3
+  mlp_chans: [512, 512]
+  norm: null
+  act: gelu
+  dropout: 0.3

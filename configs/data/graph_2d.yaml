@@ -1,0 +1,16 @@
+_target_: src.data.datasets.base.BaseDataModule
+_dataset_target_: src.data.datasets.graph_2d.Graph2DDataset
+
+ram_cache: False
+
+subsample: null
+sample_weights: null
+
+isomeric: True
+replace_dy: True
+mol2graph: v1
+
+
+
+
+

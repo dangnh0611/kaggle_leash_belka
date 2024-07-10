@@ -1,0 +1,7 @@
+# https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.callbacks.TQDMProgressBar.html
+
+
+tqdm_progress_bar:
+  _target_: src.utils.callbacks.CustomTQDMProgressBar
+  refresh_rate: 1
+  process_position: 0 # offset to support display multiple bars

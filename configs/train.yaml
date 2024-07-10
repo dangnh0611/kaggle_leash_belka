@@ -1,0 +1,92 @@
+# @package _global_
+
+# specify here default configuration
+# order of defaults determines the order in which configs override each other
+defaults:
+  - task: ???
+  - data: ???
+  - model: ???
+  - criterion: ???
+  - callbacks: default
+  - logger: # set logger here or use command line (e.g. `python train.py logger=tensorboard`)
+      - wandb
+      # - tensorboard
+      - csv
+  - trainer: default
+  - optim: default
+  - scheduler: default
+  - env: default
+
+  - hydra: custom
+
+  # config for hyperparameter optimization
+  - optional hparams_search: null
+
+  - _self_
+
+  # debugging config (enable through command line, e.g. `python train.py debug=default)
+  - debug: null
+
+  # experiment configs allow for version control of specific hyperparameters
+  # e.g. best hyperparameters for given model and datamodule
+  - exp: null
+
+  # optional local config for machine/user specific settings
+  # it's optional since it doesn't need to exist and is excluded from version control
+  - optional local: default
+
+loader:
+  steps_per_epoch: -1 # -1 means use dataset's len
+  train_batch_size: ???
+  val_batch_size: ${loader.train_batch_size}
+  num_workers: 8
+  pin_memory: True
+  drop_last: True
+  persistent_workers: False
+  sampler: null
+  batch_sampler: null
+
+cv:
+  strategy: 5folds_v1
+  num_folds: 5
+  fold_idx: -1
+  train_on_all: False
+
+ema:
+  enable: False
+  train_decays: [0.9999]
+  val_decays: ${ema.train_decays}
+  test_decays: ${ema.train_decays}
+  force_cpu: False
+  reset_from: global_best  # null or none, primary, last_best, global_best
+  reset_sched_epochs: [-1] # list of epochs to perform reset
+  reset_on_plateau: -1
+
+viz:
+  enable: False
+  train_batch: 1
+  val_batch: 1
+  bs_limit: 8
+  dpi: 200
+
+# tags to help you identify your experiments
+# you can overwrite this in experiment configs
+# overwrite from command line with `python train.py tags="[first_tag, second_tag]"`
+tags: ["dev", "reproduce", "2d"]
+# all_tags: ${_extend: ${tags}, ["fold${cv.fold_idx}"] }
+all_tags: ${tags}
+# set False to skip model training
+train: True
+# evaluate on test set, using best model weights achieved during training
+# lightning chooses best weights based on the metric specified in checkpoint callback
+test: False
+predict: False
+# simply provide checkpoint path to resume training
+ckpt_path: null
+# seed for random number generators in pytorch, numpy and python.random
+seed: null
+exp_name: null
+
+logger:
+  wandb:
+    project: hms

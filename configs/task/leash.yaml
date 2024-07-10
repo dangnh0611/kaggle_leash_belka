@@ -1,0 +1,26 @@
+_target_: src.tasks.leash.LeashTask
+
+# metrics related config
+metrics:
+  val/loss: min
+  val/AP: max
+  val/pseudo_AP: max
+  val/nonshare_AP: max
+  val/share_AP: max
+  # val/share1_AP: max
+  # val/share2_AP: max
+  val/nonshare_BRD4_AP: max
+  val/nonshare_HSA_AP: max
+  val/nonshare_sEH_AP: max
+  val/share_BRD4_AP: max
+  val/share_HSA_AP: max
+  val/share_sEH_AP: max
+
+metric_keep_top_k: 1
+metric: val/share_AP
+metric_mode: ${task.metrics.${task.metric}} # min | max
+
+type: cls
+target_cols: ['BRD4', 'HSA', 'sEH']
+submit_name: submission
+submit_subsets: ["all", "share", "public-nonshare"]

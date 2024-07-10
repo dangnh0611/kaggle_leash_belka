@@ -1,0 +1,9 @@
+defaults:
+  - default
+  - _self_
+
+accelerator: gpu
+strategy: auto
+devices: 0
+num_nodes: 1
+use_distributed_sampler: false

@@ -1,0 +1,9 @@
+# https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.callbacks.BatchSizeFinder.html
+
+batch_size_finder:
+  _target_: lightning.pytorch.callbacks.BatchSizeFinder
+  mode: power
+  steps_per_trial: 3
+  init_val: 1
+  max_trials: 32
+  batch_arg_name: batch_size

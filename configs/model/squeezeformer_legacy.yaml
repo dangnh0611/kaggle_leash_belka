@@ -1,0 +1,40 @@
+_target_: src.modules.models.squeezeformer_legacy.SqueezeformerModel
+
+vocab_size: 224
+dim: 96
+pool_type: masked_avg
+
+embedding:
+  dropout: 0.1
+  proj: False
+
+encoder:
+  depth: 6
+  droppath: 0.1
+  act: silu   # silu == swish
+  prenorm: False
+
+  # conv
+  conv_groups: ${model.dim}
+  conv_ksize: 17
+  conv_expand: 2
+  conv_dropout: 0.1
+  conv_num_blocks: 1
+
+  # attention
+  attn_heads: 4
+  attn_expand: 2
+  attn_num_blocks: 1
+  attn_dropout: 0.1
+  mlp_dropout: 0.1
+  alibi: False
+
+head:
+  type: leash
+  num_output: 3
+  rnn: False
+  bi_rnn: False
+  mlp_chans: [512, 512]
+  norm: null
+  act: gelu
+  dropout: 0.3

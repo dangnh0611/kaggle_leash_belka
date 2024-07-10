@@ -1,0 +1,27 @@
+_target_: src.modules.models.baseline_cnn1d.Model
+
+vocab_size: 1024  # 37
+weight_init: torch
+small_init_embed: False
+
+encoder:
+  ksize: 3
+  act_before_norm: True
+  embed_dim: 128
+  base_dim: 128
+  depth: 6
+  dim_scale_method: add_0
+  act: relu
+  norm: null
+
+pool_type: masked_avg
+nnfp: False
+nnfp_dim: 1024
+
+head:
+  num_output: ${_len:${task.target_cols}}
+  mlp_chans: [1024, 1024, 1024]
+  norm: null
+  act: gelu
+  dropout: 0.3
+

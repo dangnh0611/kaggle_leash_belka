@@ -1,0 +1,6 @@
+_target_: src.modules.losses.SmoothBCEWithLogitsLoss
+smoothing: 0.0
+target_threshold: null
+weight: null
+reduction: batch_mean # same as TF's sum_over_batch_size
+pos_weight: null

@@ -1,0 +1,12 @@
+name: timm@cosine
+max_epochs: ${trainer.max_epochs}
+steps_per_epoch: ${loader.steps_per_epoch}
+warmup_epochs: 0
+cooldown_epochs: 0
+lr: ${optim.lr}
+min_lr_factor: 1e-2
+warmup_lr_factor: 1e-3
+cycle_limit: 1
+cycle_decay: 0.5
+metric: ${task.metric}
+metric_mode: ${task.metric_mode}

@@ -1,0 +1,11 @@
+# https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.loggers.tensorboard.html
+
+tensorboard:
+  _target_: lightning.pytorch.loggers.tensorboard.TensorBoardLogger
+  save_dir: ${env.output_dir}/fold_${cv.fold_idx}/
+  name: tfboard
+  version: ''
+  log_graph: False
+  default_hp_metric: True
+  prefix: ''
+  sub_dir: null

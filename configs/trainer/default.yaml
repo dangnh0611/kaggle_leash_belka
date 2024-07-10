@@ -1,0 +1,45 @@
+accelerator: gpu # cpu, gpu, tpu, ipu, auto
+strategy: auto # ddp, fsdp, etc
+devices: auto # 2 or [0, 1, 2, 3], etc
+num_nodes: 1 # number of GPU nodes for distributed training
+precision: 16-mixed # 32-true, 16-mixed, bf16-mixed, 16-true, bf16-true, 64-true, transformer-engine
+# logger:
+# callbacks:
+fast_dev_run: 0 # > 0 for debug purpose
+max_epochs: ???
+min_epochs: null
+max_steps: -1
+min_steps: null
+max_time: # "00:12:00:00" or {"days": 1, "hours": 5}
+limit_train_batches: null # 0.25, 1.0, ..
+limit_val_batches: null
+limit_test_batches: null
+limit_predict_batches: null
+overfit_batches: 0.0 # 0.01, 1.0, 10.0, ...
+val_check_interval: 1.0 # https://github.com/Lightning-AI/pytorch-lightning/issues/8135
+check_val_every_n_epoch: 1
+num_sanity_val_steps: 0
+log_every_n_steps: 100
+enable_checkpointing: True
+enable_progress_bar: True
+enable_model_summary: True
+accumulate_grad_batches: 1
+gradient_clip_val: null
+gradient_clip_algorithm: null # norm, value
+deterministic: False # warn or True -> slowdown
+benchmark: True # faster, set to False if dynamic input shape or to make sure exp is reproducible
+inference_mode: True
+use_distributed_sampler: True
+profiler: null # simple, advanced
+detect_anomaly: False
+barebones: False # True -> all features that may impact raw speed are disabled
+plugins: null
+sync_batchnorm: False
+dist_batchnorm: ''
+reload_dataloaders_every_n_epochs: 0
+default_root_dir: ${env.output_dir}
+torch_compile:
+  enable: False
+  fullgraph: False
+  dynamic: null
+  mode: null

@@ -1,0 +1,5 @@
+# https://lightning.ai/docs/pytorch/stable/api/lightning.pytorch.callbacks.GradientAccumulationScheduler.html
+
+grad_accumulation_scheduler:
+  _target_: lightning.pytorch.callbacks.GradientAccumulationScheduler
+  scheduling: ??? # Dict[int, int] which map epoch -> factor, e.g {5: 2}

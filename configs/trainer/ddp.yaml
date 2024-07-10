@@ -1,0 +1,10 @@
+defaults:
+  - default
+  - _self_
+
+accelerator: gpu
+strategy: ddp
+devices: auto
+num_nodes: 1
+use_distributed_sampler: True
+sync_batchnorm: True
