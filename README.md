@@ -22,6 +22,7 @@ For this large amount of data, one need to transform dataset to another optimize
 
 The [notebooks](notebooks) directory contains some useful notebooks which is not fully ready, but easy to modify suit for need, e.g just change some paths which are specific to your local environment.
 
+- Pre-generate features (e.g, Fingerprints,..): [src/tools/extract_features.py](src/tools/extract_features.py), e.g `python3 src/tools/extract_features.py --feature ecfp6 --num-chunks 1 --chunk-idx 0 --batch-size 1000 --subset test`
 - Simulate LB Cross-Validation split: [full_final_cv_split.ipynb](notebooks/full_final_cv_split.ipynb)
 - Random Split: [random_split.ipynb](notebooks/random_split.ipynb)
 - Save as HuggingFace's [datasets](https://github.com/huggingface/datasets) for optimized on-disk dataloader: [save_hf_datasets.ipynb](notebooks/save_hf_datasets.ipynb)
